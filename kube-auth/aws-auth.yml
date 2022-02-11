@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aws-auth
+  namespace: kube-system
+data:
+  mapRoles: |
+    - rolearn: arn:aws:iam::344447137224:role/NodeWorker-NodeInstanceRole-1PCXQ2XZQ1725
+      username: system:node:{{EC2PrivateDNSName}}
+      groups:
+        - system:bootstrappers
+        - system:nodes
+    - rolearn: arn:aws:iam::344447137224:role/AWSReservedSSO_eks-admins_beb8c8db72799675
+      username: adminuser:{{SessionName}}
+      groups:
+        - eks-admins
+    - rolearn: arn:aws:iam::344447137224:role/AWSReservedSSO_eks-read-only_0b14378d0a2b18bf
+      username: readonlyuser:{{SessionName}}
+      groups:
+        - eks-read-only
+    - rolearn: arn:aws:iam::344447137224:role/AWSReservedSSO_eks-developers_f84a09179ee79097
+      username: devuser:{{SessionName}}
+      groups:
+        - eks-developers        
+  mapUsers: |
+    - userarn: arn:aws:iam::821511923493:user/Osahon_Elaiho@mojec
+      username: Osahon_Elaiho@mojec
+      groups:
+        - system:masters  
+    - userarn: arn:aws:iam::821511923493:user/victory_eze
+      username: victory_eze
+      groups:
+        - system:masters

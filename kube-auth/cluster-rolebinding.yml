@@ -1,0 +1,35 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: eks-developers-binding
+subjects:
+- kind: Group
+  name: eks-developers
+roleRef:
+  kind: ClusterRole
+  name: eks-developers
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: eks-admins-binding
+subjects:
+- kind: Group
+  name: eks-admins
+roleRef:
+  kind: ClusterRole
+  name: eks-admins
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: eks-read-only-binding
+subjects:
+- kind: Group
+  name: eks-read-only
+roleRef:
+  kind: ClusterRole
+  name: eks-read-only
+  apiGroup: rbac.authorization.k8s.io
