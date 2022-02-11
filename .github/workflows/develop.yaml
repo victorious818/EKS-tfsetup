@@ -10,13 +10,14 @@ jobs:
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
-    environment: dev
+    # environment: dev
 
 defaults:
   run:
     working-directory: ./
     shell: bash
     
+
   steps:
 
      - name: Checkout
