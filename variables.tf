@@ -72,8 +72,3 @@ variable "node_group_name" {
   type    = string
 }
 
-variable "improved" {
-  description = "the beta version of the eks cluster"
-  type    = string
-}
-
